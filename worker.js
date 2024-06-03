@@ -67,8 +67,8 @@ async function onMessage (message) {
   returnMessage = "<pre>" + returnMessage + "</pre>\n@JSON_Dump_Bot"
   var mainMessage = sendPlainText(message.chat.id, returnMessage)
   
-  // Wait for 1 second
-  await delay(1000);
+  // Wait for 0.5 second
+  await delay(500);
 
   var secondMessage = sendPlainText(message.chat.id, "More high quality bots:\n@Arashnm80\_Channel")
   return secondMessage
