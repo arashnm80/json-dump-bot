@@ -65,7 +65,13 @@ async function onUpdate (update) {
 async function onMessage (message) {
   var returnMessage = JSON.stringify(message, null, 2)
   returnMessage = "<pre>" + returnMessage + "</pre>\n@JSON_Dump_Bot"
-  return sendPlainText(message.chat.id, returnMessage)
+  var mainMessage = sendPlainText(message.chat.id, returnMessage)
+  
+  // Wait for 1 second
+  await delay(1000);
+
+  var secondMessage = sendPlainText(message.chat.id, "More high quality bots:\n@Arashnm80\_Channel")
+  return secondMessage
 }
 
 /**
@@ -109,4 +115,9 @@ function apiUrl (methodName, params = null) {
     query = '?' + new URLSearchParams(params).toString()
   }
   return `https://api.telegram.org/bot${TOKEN}/${methodName}${query}`
+}
+
+// Define the delay function
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
